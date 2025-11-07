@@ -1,0 +1,8 @@
+17:33:37 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+
+17:33:38 Build Finished (took 804ms)
+

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PL信号状态监控</title>
+<style>
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI','Microsoft YaHei',sans-serif;}
+body {background:linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;color:#fff;}
+.container {width:100%;max-width:900px;background:rgba(0,0,0,0.7);border-radius:20px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.5);backdrop-filter:blur(10px);}
+header {text-align:center;margin-bottom:30px;}
+h1 {font-size:2.5rem;margin-bottom:10px;background:linear-gradient(to right,#ff7e5f,#feb47b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 2px 4px rgba(0,0,0,0.3);}
+.status-container {display:flex;justify-content:space-between;margin-bottom:30px;flex-wrap:wrap;gap:20px;}
+.status-card {flex:1;min-width:200px;background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;text-align:center;transition:transform 0.3s,box-shadow 0.3s;}
+.status-card:hover {transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,0,0,0.3);}
+.status-card h3 {font-size:1.2rem;margin-bottom:10px;color:#ddd;}
+.status-value {font-size:2.5rem;font-weight:bold;}
+.voice-value{color:#4CAF50;} .music-value{color:#2196F3;} .busy-value{color:#FF9800;}
+.result-display{background:rgba(255,255,255,0.1);border-radius:15px;padding:30px;text-align:center;margin-bottom:20px;min-height:180px;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.detection-result{font-size:3rem;font-weight:bold;margin-bottom:15px;min-height:80px;display:flex;align-items:center;justify-content:center;}
+.voice-detected{color:#4CAF50;text-shadow:0 0 10px rgba(76,175,80,0.5);}
+.music-detected{color:#2196F3;text-shadow:0 0 10px rgba(33,150,243,0.5);}
+.no-signal{color:#9E9E9E;}
+.processing{font-size:1.5rem;color:#FF9800;min-height:40px;display:flex;align-items:center;justify-content:center;}
+.signal-history{background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;max-height:200px;overflow-y:auto;}
+.signal-history h3{text-align:center;color:#ddd;margin-bottom:15px;}
+.history-list{list-style-type:none;}
+.history-item{padding:8px 12px;margin-bottom:8px;background:rgba(0,0,0,0.3);border-radius:8px;display:flex;justify-content:space-between;}
+.history-time{color:#aaa;font-size:0.9rem;}
+.voice-event{color:#4CAF50;} .music-event{color:#2196F3;} .busy-event{color:#FF9800;}
+.pulse{animation:pulse 1.5s infinite;}
+@keyframes pulse{0%{opacity:1;}50%{opacity:0.7;}100%{opacity:1;}}
+@media(max-width:768px){.status-container{flex-direction:column;}h1{font-size:2rem;}.detection-result{font-size:2.2rem;}}
+.connect-btn {display:block;margin:0 auto 20px auto;padding:10px 20px;border:none;border-radius:10px;background:#2196F3;color:white;font-size:1rem;cursor:pointer;transition:0.3s;}
+.connect-btn:hover {background:#42a5f5;}
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>PL信号状态监控</h1>
+        <p>实时显示FFT处理状态</p>
+    </header>
+
+    <button class="connect-btn" id="connect-btn">🔌 连接串口</button>
+
+    <div class="status-container">
+        <div class="status-card"><h3>语音信号</h3><div class="status-value voice-value" id="voice-status">0</div></div>
+        <div class="status-card"><h3>音乐信号</h3><div class="status-value music-value" id="music-status">0</div></div>
+        <div class="status-card"><h3>处理状态</h3><div class="status-value busy-value" id="busy-status">0</div></div>
+        <!-- 峰值频点(Index) -->
+        <div class="status-card"><h3>峰值频点 (Index)</h3><div class="status-value" id="peak-index">-</div></div>
+    </div>
+
+    <div class="result-display">
+        <div class="detection-result" id="detection-result">等待信号输入...</div>
+        <div class="processing" id="processing-status"></div>
+    </div>
+
+    <div class="signal-history">
+        <h3>信号历史记录</h3>
+        <ul class="history-list" id="history-list"></ul>
+    </div>
+</div>
+
+<script>
+let lastVoice = 0, lastMusic = 0, lastBusy = 0;
+
+// === 串口输入行解析 ===
+function parseSerialLine(line) {
+    line = line.trim();
+    if (!line) return;
+
+    let voice = 0, music = 0, busy = 0;
+    let idx = null;    // index 默认不覆盖
+    let maxFlag = 1;   // 若未给出max，按你的要求“正常”处理
+
+    // ✅ 优先解析 JSON 格式
+    if (line.startsWith("{") && line.endsWith("}")) {
+        try {
+            const data = JSON.parse(line);
+
+            voice   = data.voice ?? 0;
+            music   = data.music ?? 0;
+            busy    = data.busy  ?? 0;
+            maxFlag = (data.max ?? 1);
+
+            if (typeof data.index !== "undefined") {
+                const n = Number(data.index);
+                if (Number.isFinite(n)) idx = n;
+            }
+
+            updateDisplay(voice, music, busy, idx, maxFlag);
+            return;
+        } catch (e) {
+            console.warn("JSON解析失败:", e, line);
+        }
+    }
+
+    // ✅ 兼容旧文本格式（没有max/index）
+    if (line.includes("检测到语音信号")) voice = 1;
+    if (line.includes("检测到音乐信号")) music = 1;
+    if (line.includes("FFTing") || /Busy:\s*1/.test(line)) busy = 1;
+
+    updateDisplay(voice, music, busy, null, 1);
+}
+
+// === 更新UI显示 ===
+function updateDisplay(voiceState, musicState, busyState, peakIndex, maxFlag) {
+    // 更新数值区
+    document.getElementById('voice-status').textContent = voiceState;
+    document.getElementById('music-status').textContent = musicState;
+    document.getElementById('busy-status').textContent  = busyState;
+
+    const detectionResult  = document.getElementById('detection-result');
+    const processingStatus = document.getElementById('processing-status');
+    const peakIndexEl      = document.getElementById('peak-index');
+
+    // Busy状态动画（保持原逻辑）
+    if (busyState) {
+        processingStatus.textContent = "正在检测中...";
+        processingStatus.classList.add('pulse');
+    } else {
+        processingStatus.textContent = "";
+        processingStatus.classList.remove('pulse');
+    }
+
+    // === 峰值频点显示：max=0 时 index 无效，用 "--" ===
+    if (maxFlag === 0) {
+        peakIndexEl.textContent = "--";
+    } else if (Number.isFinite(peakIndex)) {
+        peakIndexEl.textContent = peakIndex;
+    }
+    //（当 max=1 但本次没有新 index 时，不改动显示）
+
+    // === 大字主显示：先按原逻辑更新（仅在语音/音乐变化时）===
+    let newState = "";
+    if (voiceState) newState = "语音信号";
+    else if (musicState) newState = "音乐信号";
+    else newState = "无信号";
+
+    if (voiceState !== lastVoice || musicState !== lastMusic) {
+        if (voiceState) {
+            detectionResult.textContent = "检测到语音信号";
+            detectionResult.className   = "detection-result voice-detected pulse";
+            addHistoryEvent("语音信号");
+        } else if (musicState) {
+            detectionResult.textContent = "检测到音乐信号";
+            detectionResult.className   = "detection-result music-detected pulse";
+            addHistoryEvent("音乐信号");
+        } else if (busyState) {
+            detectionResult.textContent = "未检测到信号";
+            detectionResult.className   = "detection-result no-signal";
+        }
+    }
+
+    // === max 门控：max=0 时强制覆盖为“未检测到声音” ===
+    if (maxFlag === 0) {
+        detectionResult.textContent = "未检测到声音";
+        detectionResult.className   = "detection-result no-signal";
+        // 注意：不写历史记录，保持原来的“只在语音/音乐状态变化时记录”的策略
+    }
+
+    lastVoice = voiceState;
+    lastMusic = musicState;
+    lastBusy  = busyState;
+}
+
+// === 历史记录 ===
+function addHistoryEvent(eventType) {
+    const historyList = document.getElementById('history-list');
+    const now = new Date();
+    const timeString = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+    const listItem = document.createElement('li');
+    listItem.className = 'history-item';
+    let eventClass = eventType === '语音信号' ? 'voice-event' : (eventType === '音乐信号' ? 'music-event' : 'busy-event');
+    listItem.innerHTML = `<span class="history-time">${timeString}</span><span class="history-event ${eventClass}">${eventType}</span>`;
+    historyList.insertBefore(listItem, historyList.firstChild);
+    if (historyList.children.length > 10) historyList.removeChild(historyList.lastChild);
+}
+
+// === 串口连接 ===
+const connectBtn = document.getElementById('connect-btn');
+let port, reader;
+
+connectBtn.addEventListener('click', async () => {
+    try {
+        if (!("serial" in navigator)) {
+            alert("❌ 当前浏览器不支持 Web Serial API，请使用 Chrome 89+ 或 Edge。");
+            return;
+        }
+        port = await navigator.serial.requestPort();
+        await port.open({ baudRate: 115200 });
+        connectBtn.textContent = "✅ 串口已连接";
+        listenToPort();
+    } catch (err) {
+        alert("串口连接失败：" + err);
+    }
+});
+
+async function listenToPort() {
+    const decoder = new TextDecoderStream();
+    port.readable.pipeTo(decoder.writable);
+    reader = decoder.readable.getReader();
+
+    let buffer = "";
+    while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        if (value) {
+            buffer += value;
+            const lines = buffer.split(/\r?\n/);
+            buffer = lines.pop();
+            for (const line of lines) parseSerialLine(line);
+        }
+    }
+}
+</script>
+</body>
+</html>

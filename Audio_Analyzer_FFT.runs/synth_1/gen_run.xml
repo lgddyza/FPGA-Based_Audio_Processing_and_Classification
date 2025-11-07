@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-2" LaunchTime="1762418251">
+  <File Type="PA-TCL" Name="FFT_OUT.tcl"/>
+  <File Type="REPORTS-TCL" Name="FFT_OUT_reports.tcl"/>
+  <File Type="RDS-RDS" Name="FFT_OUT.vds"/>
+  <File Type="RDS-UTIL" Name="FFT_OUT_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="FFT_OUT_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="FFT_OUT.dcp"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/bd/zynq_a9/zynq_a9.bd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/bd/zynq_a9/zynq_a9.bd"/>
+        <Attr Name="ImportTime" Val="1762405554"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/AD.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/AD.v"/>
+        <Attr Name="ImportTime" Val="1761220086"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/AD_DA_tran.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/AD_DA_tran.v"/>
+        <Attr Name="ImportTime" Val="1761220748"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/DA.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/DA.v"/>
+        <Attr Name="ImportTime" Val="1761220756"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/TOP.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/TOP.v"/>
+        <Attr Name="ImportTime" Val="1762161402"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/ad_fifo.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/ad_fifo.v"/>
+        <Attr Name="ImportTime" Val="1762161467"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/clk_2k.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/clk_2k.v"/>
+        <Attr Name="ImportTime" Val="1761224438"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/clock_div.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/clock_div.v"/>
+        <Attr Name="ImportTime" Val="1761131039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/fft_fifo.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/fft_fifo.v"/>
+        <Attr Name="ImportTime" Val="1761543298"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/fft_t.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/FFT_tran/FFT_tran.srcs/sources_1/new/fft_t.v"/>
+        <Attr Name="ImportTime" Val="1761145278"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/fifo_FFT.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/fifo_FFT.v"/>
+        <Attr Name="ImportTime" Val="1762408522"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/multiple_power.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/multiple_power.v"/>
+        <Attr Name="ImportTime" Val="1761313684"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/peak_classify.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/peak_classify.v"/>
+        <Attr Name="ImportTime" Val="1762418147"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/peak_find.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/peak_find.v"/>
+        <Attr Name="ImportTime" Val="1762418242"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/zynq_a9/hdl/zynq_a9_wrapper.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/bd/zynq_a9/hdl/zynq_a9_wrapper.v"/>
+        <Attr Name="ImportTime" Val="1762405554"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/FFT_OUT.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/FFT_OUT.v"/>
+        <Attr Name="ImportTime" Val="1762416385"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/fft_filter.v">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/fft_filter.v"/>
+        <Attr Name="ImportTime" Val="1762175562"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="FFT_OUT"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/adda.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/constrs_1/new/adda.xdc"/>
+        <Attr Name="ImportTime" Val="1762407052"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/adda.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="pll_ip"/>
+  <BlockFileSet Type="BlockSrcs" Name="ila_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="fifo_generator_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="xfft_0"/>
+</GenRun>

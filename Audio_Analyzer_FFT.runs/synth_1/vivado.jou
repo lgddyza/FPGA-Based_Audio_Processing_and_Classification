@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Nov  6 16:37:33 2025
+# Process ID: 28120
+# Current directory: F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/synth_1
+# Command line: vivado.exe -log FFT_OUT.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FFT_OUT.tcl
+# Log file: F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/synth_1/FFT_OUT.vds
+# Journal file: F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source FFT_OUT.tcl -notrace

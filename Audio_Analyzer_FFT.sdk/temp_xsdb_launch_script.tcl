@@ -1,0 +1,1 @@
+set xsdb_idle_timeout -1;source F:/FPGA/Vivado18.3/SDK/2018.3/scripts/xsdb/xsdb/xsdb-server.tcl

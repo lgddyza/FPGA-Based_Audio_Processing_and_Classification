@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Nov  6 19:34:48 2025
+# Process ID: 28364
+# Current directory: E:/202511FPGA/Audio_Analyzer_FFT
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17116 E:\202511FPGA\Audio_Analyzer_FFT\Audio_Analyzer_FFT.xpr
+# Log file: E:/202511FPGA/Audio_Analyzer_FFT/vivado.log
+# Journal file: E:/202511FPGA/Audio_Analyzer_FFT\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/202511FPGA/Audio_Analyzer_FFT/Audio_Analyzer_FFT.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project E:/202511FPGA/Audio_Analyzer_FFT/Audio_Analyzer_FFT.xpr
+update_compile_order -fileset sources_1
+open_bd_design {E:/202511FPGA/Audio_Analyzer_FFT/Audio_Analyzer_FFT.srcs/sources_1/bd/zynq_a9/zynq_a9.bd}
+synth_design -rtl -name rtl_1

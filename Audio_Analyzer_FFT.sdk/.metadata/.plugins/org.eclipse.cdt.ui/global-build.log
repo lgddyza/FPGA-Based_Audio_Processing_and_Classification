@@ -1,0 +1,1087 @@
+14:22:57 **** Clean-only build of configuration Debug for project Uart_out ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  Uart_out.elf.size  Uart_out.elf
+' '
+14:22:57 **** Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:18:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:18:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:18:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_out.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_out_bsp/ps7_cortexa9_0/lib -o "Uart_out.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_out.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_out.elf  |tee "Uart_out.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79640	   2592	  23376	 105608	  19c88	Uart_out.elf
+'Finished building: Uart_out.elf.size'
+' '
+14:29:55 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:29:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:29:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:29:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:26:9: warning: unused variable 'index_value' [-Wunused-variable]
+     u32 index_value = read_index_bits();
+         ^~~~~~~~~~~
+../src/main.c: In function 'main':
+../src/main.c:66:25: error: 'index_value' undeclared (first use in this function)
+         printf("%u\r\n",index_value);
+                         ^~~~~~~~~~~
+../src/main.c:66:25: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/subdir.mk:23: src/main.o] Error 1
+14:31:00 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:29:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:29:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:29:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:26:9: warning: unused variable 'index_value' [-Wunused-variable]
+     u32 index_value = read_index_bits();
+         ^~~~~~~~~~~
+../src/main.c: In function 'main':
+../src/main.c:66:25: error: 'index_value' undeclared (first use in this function)
+         printf("%d\r\n",index_value);
+                         ^~~~~~~~~~~
+../src/main.c:66:25: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/subdir.mk:23: src/main.o] Error 1
+14:31:33 **** Incremental Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:29:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:29:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:29:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:26:9: warning: unused variable 'index_value' [-Wunused-variable]
+     u32 index_value = read_index_bits();
+         ^~~~~~~~~~~
+../src/main.c: In function 'main':
+../src/main.c:66:25: error: 'index_value' undeclared (first use in this function)
+         printf("%d\r\n",index_value);
+                         ^~~~~~~~~~~
+../src/main.c:66:25: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/subdir.mk:23: src/main.o] Error 1
+14:32:57 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:29:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:29:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:29:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:42:14: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("%u\r\n",index_value);
+             ~^
+             %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_out.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_out_bsp/ps7_cortexa9_0/lib -o "Uart_out.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_out.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_out.elf  |tee "Uart_out.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79776	   2592	  23376	 105744	  19d10	Uart_out.elf
+'Finished building: Uart_out.elf.size'
+' '
+14:33:27 **** Incremental Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+14:35:11 **** Incremental Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+14:37:32 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:29:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:29:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:29:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:42:14: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("%u\r\n",index_value);
+             ~^
+             %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_out.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_out_bsp/ps7_cortexa9_0/lib -o "Uart_out.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_out.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_out.elf  |tee "Uart_out.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79776	   2592	  23376	 105744	  19d10	Uart_out.elf
+'Finished building: Uart_out.elf.size'
+' '
+14:40:53 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:29:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:29:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:29:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:42:14: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("%u\r\n",index_value);
+             ~^
+             %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_out.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_out_bsp/ps7_cortexa9_0/lib -o "Uart_out.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_out.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_out.elf  |tee "Uart_out.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79776	   2592	  23376	 105744	  19d10	Uart_out.elf
+'Finished building: Uart_out.elf.size'
+' '
+14:44:00 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:30:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:30:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:30:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:43:14: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("%u\r\n",index_value);
+             ~^
+             %lu
+../src/main.c:26:9: warning: unused variable 'max_state' [-Wunused-variable]
+     u32 max_state   = XGpioPs_ReadPin(&gpio, EMIO_FIRST_PIN + 3);
+         ^~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_out.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_out_bsp/ps7_cortexa9_0/lib -o "Uart_out.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_out.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_out.elf  |tee "Uart_out.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79840	   2592	  23376	 105808	  19d50	Uart_out.elf
+'Finished building: Uart_out.elf.size'
+' '
+14:44:29 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:30:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:30:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:30:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:44:14: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("%u\r\n",index_value);
+             ~^
+             %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_out.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_out_bsp/ps7_cortexa9_0/lib -o "Uart_out.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_out.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_out.elf  |tee "Uart_out.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79840	   2592	  23376	 105808	  19d50	Uart_out.elf
+'Finished building: Uart_out.elf.size'
+' '
+14:45:53 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_out.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_out_bsp/ps7_cortexa9_0/lib -o "Uart_out.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_out.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_out.elf  |tee "Uart_out.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  29988	   1160	  22616	  53764	   d204	Uart_out.elf
+'Finished building: Uart_out.elf.size'
+' '
+14:48:02 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:22:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:22:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:22:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:36:21: error: 'index_value' undeclared (first use in this function)
+     printf("%u\r\n",index_value);
+                     ^~~~~~~~~~~
+../src/main.c:36:21: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/subdir.mk:23: src/main.o] Error 1
+14:48:09 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:22:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:22:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:22:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:37:1: error: expected expression before '}' token
+ }
+ ^
+make: *** [src/subdir.mk:23: src/main.o] Error 1
+14:49:00 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:22:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:22:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:22:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:18:9: warning: unused variable 'max_state' [-Wunused-variable]
+     u32 max_state   = XGpioPs_ReadPin(&gpio, EMIO_FIRST_PIN + 3);
+         ^~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_out.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_out_bsp/ps7_cortexa9_0/lib -o "Uart_out.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_out.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_out.elf  |tee "Uart_out.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79640	   2592	  23376	 105608	  19c88	Uart_out.elf
+'Finished building: Uart_out.elf.size'
+' '
+14:49:45 **** Auto Build of configuration Debug for project Uart_out ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_out_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:18:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:18:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:18:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_out.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_out_bsp/ps7_cortexa9_0/lib -o "Uart_out.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_out.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_out.elf  |tee "Uart_out.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79640	   2592	  23376	 105608	  19c88	Uart_out.elf
+'Finished building: Uart_out.elf.size'
+' '
+14:54:35 **** Build of project Uart_0_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_10/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_8/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling coresightps_dcc"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_10/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_8/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling standalone"
+In file included from usleep.c:56:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xil_sleeptimer.c:51:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xtime_l.c:49:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from sleep.c:53:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+
+**** Build of configuration Debug for project Uart_0 ****
+
+Nothing to build for project Uart_0
+14:55:03 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+../../Uart_0_bsp/ps7_cortexa9_0/lib\libxil.a(xil-crt0.o): In function `_start':
+F:\FPGA\work_space\AD_DA_tran\AD_DA_tran.sdk\Uart_0_bsp\ps7_cortexa9_0\libsrc\standalone_v6_8\src/xil-crt0.S:138: undefined reference to `main'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: Uart_0.elf] Error 1
+14:55:06 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:18:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:18:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:18:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79640	   2592	  23376	 105608	  19c88	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+14:58:37 **** Clean-only build of configuration Debug for project Uart_0 ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  Uart_0.elf.size  Uart_0.elf
+' '
+14:58:37 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:18:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:18:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:18:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79640	   2592	  23376	 105608	  19c88	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+15:03:37 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+15:05:05 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:26:23: warning: implicit declaration of function 'read_max_bit'; did you mean 'read_index_bits'? [-Wimplicit-function-declaration]
+     u32 max_state   = read_max_bit();
+                       ^~~~~~~~~~~~
+                       read_index_bits
+../src/main.c:30:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:30:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:30:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:44:14: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("%u\r\n",index_value);
+             ~^
+             %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/main.o: In function `read_pl_signals':
+F:\FPGA\work_space\AD_DA_tran\AD_DA_tran.sdk\Uart_0\Debug/../src/main.c:26: undefined reference to `read_max_bit'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: Uart_0.elf] Error 1
+15:05:41 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:30:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:30:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:30:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:44:14: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("%u\r\n",index_value);
+             ~^
+             %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79840	   2592	  23376	 105808	  19d50	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+15:05:47 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+15:06:27 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:30:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                        ~^
+                        %ld
+../src/main.c:30:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:30:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:44:14: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("%d\r\n",index_value);
+             ~^
+             %ld
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79840	   2592	  23376	 105808	  19d50	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+15:06:29 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+15:07:21 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:30:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                        ~^
+                        %ld
+../src/main.c:30:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:30:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:30:61: warning: format '%d' expects argument of type 'int', but argument 5 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                            ~^
+                                                            %ld
+../src/main.c:30:74: warning: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                                         ~^
+                                                                         %lu
+../src/main.c:44:14: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("%d\r\n",index_value);
+             ~^
+             %ld
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79856	   2592	  23376	 105824	  19d60	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+15:07:22 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+15:07:42 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:30:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                        ~^
+                        %ld
+../src/main.c:30:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:30:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:30:61: warning: format '%d' expects argument of type 'int', but argument 5 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                            ~^
+                                                            %ld
+../src/main.c:30:74: warning: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                                         ~^
+                                                                         %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79848	   2592	  23376	 105816	  19d58	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+15:07:46 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+15:17:03 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:30:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                        ~^
+                        %ld
+../src/main.c:30:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:30:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:30:61: warning: format '%d' expects argument of type 'int', but argument 5 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                            ~^
+                                                            %ld
+../src/main.c:30:74: warning: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                                         ~^
+                                                                         %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79776	   2592	  23376	 105744	  19d10	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+15:17:05 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+15:19:52 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:32:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                        ~^
+                        %ld
+../src/main.c:32:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:32:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:32:61: warning: format '%d' expects argument of type 'int', but argument 5 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                            ~^
+                                                            %ld
+../src/main.c:32:74: warning: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                                         ~^
+                                                                         %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79840	   2592	  23376	 105808	  19d50	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+15:19:58 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+16:14:35 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:32:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                        ~^
+                        %ld
+../src/main.c:32:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:32:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:32:61: warning: format '%d' expects argument of type 'int', but argument 5 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                            ~^
+                                                            %ld
+../src/main.c:32:74: warning: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                                         ~^
+                                                                         %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79848	   2592	  23376	 105816	  19d58	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+16:14:39 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+16:20:31 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:32:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                        ~^
+                        %ld
+../src/main.c:32:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:32:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:32:61: warning: format '%d' expects argument of type 'int', but argument 5 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                            ~^
+                                                            %ld
+../src/main.c:32:74: warning: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                                         ~^
+                                                                         %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79848	   2592	  23376	 105816	  19d58	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+16:20:34 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+16:25:07 **** Auto Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Uart_0_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'read_pl_signals':
+../src/main.c:32:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                        ~^
+                        %ld
+../src/main.c:32:38: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                     ~^
+                                     %ld
+../src/main.c:32:50: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                 ~^
+                                                 %ld
+../src/main.c:32:61: warning: format '%d' expects argument of type 'int', but argument 5 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                            ~^
+                                                            %ld
+../src/main.c:32:74: warning: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'u32 {aka long unsigned int}' [-Wformat=]
+     printf("{\"voice\":%d,\"music\":%d,\"busy\":%d,\"max\":%d,\"index\":%u}\r\n",
+                                                                         ~^
+                                                                         %lu
+'Finished building: ../src/main.c'
+' '
+'Building target: Uart_0.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Uart_0_bsp/ps7_cortexa9_0/lib -o "Uart_0.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Uart_0.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Uart_0.elf  |tee "Uart_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79848	   2592	  23376	 105816	  19d58	Uart_0.elf
+'Finished building: Uart_0.elf.size'
+' '
+16:25:09 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+17:33:37 **** Incremental Build of configuration Debug for project Uart_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
