@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子系统设计二FFT</title>
+<style>
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI','Microsoft YaHei',sans-serif;}
+body {background:linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;color:#fff;}
+.container {width:100%;max-width:1200px;background:rgba(0,0,0,0.7);border-radius:20px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.5);backdrop-filter:blur(10px);}
+header {text-align:center;margin-bottom:30px;}
+h1 {font-size:2.5rem;margin-bottom:10px;background:linear-gradient(to right,#ff7e5f,#feb47b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 2px 4px rgba(0,0,0,0.3);}
+.subtitle {font-size:1.1rem;color:#ddd;margin-bottom:20px;}
+
+/* 连接状态样式 */
+.connection-status {text-align:center;margin-bottom:20px;}
+.connect-btn {display:inline-block;margin:0 auto 20px auto;padding:10px 20px;border:none;border-radius:10px;background:#2196F3;color:white;font-size:1rem;cursor:pointer;transition:0.3s;}
+.connect-btn:hover {background:#42a5f5;}
+.connect-btn.connected {background:#4CAF50;}
+.connect-btn.disconnected {background:#f44336;}
+.connection-info {margin-top:10px;font-size:0.9rem;color:#aaa;}
+
+/* 主状态容器 */
+.status-container {display:flex;justify-content:space-between;margin-bottom:30px;flex-wrap:wrap;gap:20px;}
+.status-card {flex:1;min-width:200px;background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;text-align:center;transition:transform 0.3s,box-shadow 0.3s;}
+.status-card:hover {transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,0,0,0.3);}
+.status-card h3 {font-size:1.2rem;margin-bottom:10px;color:#ddd;}
+.status-value {font-size:2.5rem;font-weight:bold;}
+.voice-value{color:#4CAF50;} 
+.music-value{color:#2196F3;} 
+.busy-value{color:#FF9800;}
+.index-value{color:#9C27B0;}
+
+/* 谐波信息容器 */
+.harmonic-container {display:grid;grid-template-columns:repeat(3, 1fr);gap:20px;margin-bottom:30px;}
+.harmonic-card {background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;text-align:center;transition:transform 0.3s,box-shadow 0.3s;}
+.harmonic-card:hover {transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,0,0,0.3);}
+.harmonic-card h3 {font-size:1.2rem;margin-bottom:10px;color:#ddd;}
+.harmonic-value {font-size:2rem;font-weight:bold;color:#FF9800;}
+.harmonic-subtitle {font-size:0.9rem;color:#aaa;margin-top:5px;}
+
+/* 波形类型显示 */
+.wave-container {background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;margin-bottom:20px;}
+.wave-header {display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;}
+.wave-title {font-size:1.3rem;color:#ddd;}
+.wave-type {font-size:1.5rem;font-weight:bold;padding:8px 20px;border-radius:10px;background:rgba(0,0,0,0.3);}
+.wave-sine {color:#4CAF50;background:rgba(76,175,80,0.2);}
+.wave-square {color:#2196F3;background:rgba(33,150,243,0.2);}
+.wave-sawtooth {color:#FF9800;background:rgba(255,152,0,0.2);}
+.wave-unknown {color:#9E9E9E;background:rgba(158,158,158,0.2);}
+
+/* 波形图 */
+.wave-chart {width:100%;height:150px;background:rgba(0,0,0,0.3);border-radius:10px;margin-top:10px;position:relative;overflow:hidden;}
+.wave-canvas {width:100%;height:100%;}
+
+/* 检测结果区域 */
+.result-display{background:rgba(255,255,255,0.1);border-radius:15px;padding:30px;text-align:center;margin-bottom:20px;min-height:180px;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.detection-result{font-size:3rem;font-weight:bold;margin-bottom:15px;min-height:80px;display:flex;align-items:center;justify-content:center;}
+.voice-detected{color:#4CAF50;text-shadow:0 0 10px rgba(76,175,80,0.5);}
+.music-detected{color:#2196F3;text-shadow:0 0 10px rgba(33,150,243,0.5);}
+.no-signal{color:#9E9E9E;}
+.processing{font-size:1.5rem;color:#FF9800;min-height:40px;display:flex;align-items:center;justify-content:center;}
+
+/* 历史记录 */
+.signal-history{background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;max-height:200px;overflow-y:auto;}
+.signal-history h3{text-align:center;color:#ddd;margin-bottom:15px;}
+.history-list{list-style-type:none;}
+.history-item{padding:8px 12px;margin-bottom:8px;background:rgba(0,0,0,0.3);border-radius:8px;display:flex;justify-content:space-between;}
+.history-time{color:#aaa;font-size:0.9rem;}
+.voice-event{color:#4CAF50;} 
+.music-event{color:#2196F3;} 
+.busy-event{color:#FF9800;}
+
+/* 动画 */
+.pulse{animation:pulse 1.5s infinite;}
+@keyframes pulse{0%{opacity:1;}50%{opacity:0.7;}100%{opacity:1;}}
+
+/* 响应式设计 */
+@media(max-width:768px){
+    .status-container{flex-direction:column;}
+    .harmonic-container{grid-template-columns:1fr;}
+    h1{font-size:2rem;}
+    .detection-result{font-size:2.2rem;}
+    .wave-header{flex-direction:column;text-align:center;}
+    .wave-title{margin-bottom:10px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>电子系统设计二</h1>
+        <p class="subtitle">实时显示FFT处理状态 - 支持谐波分析和波形识别</p>
+    </header>
+
+    <div class="connection-status">
+        <button class="connect-btn" id="connect-btn">🔌 连接串口</button>
+        <div class="connection-info" id="connection-info">点击连接按钮开始接收数据</div>
+    </div>
+
+    <!-- 主状态显示 -->
+    <div class="status-container">
+        <div class="status-card"><h3>语音信号</h3><div class="status-value voice-value" id="voice-status">0</div></div>
+        <div class="status-card"><h3>音乐信号</h3><div class="status-value music-value" id="music-status">0</div></div>
+        <div class="status-card"><h3>处理状态</h3><div class="status-value busy-value" id="busy-status">0</div></div>
+        <div class="status-card"><h3>峰值频点 (Index)</h3><div class="status-value index-value" id="peak-index">-</div></div>
+    </div>
+
+    <!-- 谐波信息 -->
+    <div class="harmonic-container">
+        <div class="harmonic-card">
+            <h3>基波幅度</h3>
+            <div class="harmonic-value" id="fundamental-amp">0</div>
+            <div class="harmonic-subtitle">12位 (0-4095)</div>
+        </div>
+        <div class="harmonic-card">
+            <h3>二次谐波</h3>
+            <div class="harmonic-value" id="second-harmonic">0</div>
+            <div class="harmonic-subtitle">8位 (0-255)</div>
+        </div>
+        <div class="harmonic-card">
+            <h3>三次谐波</h3>
+            <div class="harmonic-value" id="third-harmonic">0</div>
+            <div class="harmonic-subtitle">8位 (0-255)</div>
+        </div>
+    </div>
+
+    <!-- 波形类型显示 -->
+    <div class="wave-container">
+        <div class="wave-header">
+            <div class="wave-title">波形类型识别</div>
+            <div class="wave-type wave-unknown" id="wave-type">未知波形</div>
+        </div>
+        <div class="wave-chart">
+            <canvas class="wave-canvas" id="wave-canvas"></canvas>
+        </div>
+    </div>
+
+    <!-- 检测结果 -->
+    <div class="result-display">
+        <div class="detection-result" id="detection-result">等待信号输入...</div>
+        <div class="processing" id="processing-status"></div>
+    </div>
+
+    <!-- 历史记录 -->
+    <div class="signal-history">
+        <h3>信号历史记录</h3>
+        <ul class="history-list" id="history-list"></ul>
+    </div>
+</div>
+
+<script>
+// 全局变量
+let lastVoice = 0, lastMusic = 0, lastBusy = 0;
+let port, reader;
+let waveCanvas, waveCtx;
+let wavePhase = 0;
+let currentFundamentalAmp = 0;  // 跟踪当前的基波幅度
+let currentWaveType = 0;        // 跟踪当前的波形类型
+let isWaveActive = false;       // 波形是否活动标志
+let keyboardOverrideWaveType = 0;  // 键盘覆盖的波形类型，0表示无覆盖
+let isKeyPressed = false;       // 是否有键被按下
+let keysPressed = new Set();    // 记录被按下的键
+let isMaxZero = false;          // 记录上一次接收的max是否为0
+
+// 初始化画布
+function initWaveCanvas() {
+    waveCanvas = document.getElementById('wave-canvas');
+    waveCtx = waveCanvas.getContext('2d');
+    waveCanvas.width = waveCanvas.offsetWidth;
+    waveCanvas.height = waveCanvas.offsetHeight;
+}
+
+// 绘制未知波形（直线）
+function drawUnknownWave() {
+    if (!waveCtx) return;
+    
+    const width = waveCanvas.width;
+    const height = waveCanvas.height;
+    waveCtx.clearRect(0, 0, width, height);
+    
+    waveCtx.beginPath();
+    waveCtx.lineWidth = 2;
+    waveCtx.strokeStyle = '#666666';
+    waveCtx.setLineDash([5, 5]);  // 虚线
+    
+    // 画一条水平线
+    const centerY = height / 2;
+    waveCtx.moveTo(0, centerY);
+    waveCtx.lineTo(width, centerY);
+    waveCtx.stroke();
+    
+    waveCtx.setLineDash([]);  // 重置为实线
+}
+
+// 绘制波形
+function drawWave(waveType, frequency = 1) {
+    if (!waveCtx) return;
+    
+    const width = waveCanvas.width;
+    const height = waveCanvas.height;
+    waveCtx.clearRect(0, 0, width, height);
+    
+    // 如果波形不活动，绘制未知波形
+    if (!isWaveActive) {
+        drawUnknownWave();
+        return;
+    }
+    
+    wavePhase += 0.05;
+    if (wavePhase > Math.PI * 2) wavePhase -= Math.PI * 2;
+    
+    waveCtx.beginPath();
+    waveCtx.lineWidth = 2;
+    
+    // 根据波形类型设置颜色
+    switch(waveType) {
+        case 1: // 正弦波
+            waveCtx.strokeStyle = '#4CAF50';
+            break;
+        case 2: // 矩形波
+            waveCtx.strokeStyle = '#2196F3';
+            break;
+        case 3: // 锯齿波
+            waveCtx.strokeStyle = '#FF9800';
+            break;
+        default: // 未知
+            drawUnknownWave();
+            return;
+    }
+    
+    for (let x = 0; x < width; x++) {
+        const t = (x / width) * Math.PI * 4 + wavePhase;
+        let y = 0;
+        
+        switch(waveType) {
+            case 1: // 正弦波
+                y = Math.sin(t * frequency) * 0.4;
+                break;
+            case 2: // 矩形波
+                y = Math.sin(t * frequency) > 0 ? 0.4 : -0.4;
+                break;
+            case 3: // 锯齿波
+                y = 2 * (t * frequency / (Math.PI * 2) - Math.floor(t * frequency / (Math.PI * 2) + 0.5));
+                break;
+        }
+        
+        const screenY = height / 2 - y * height / 3;
+        if (x === 0) {
+            waveCtx.moveTo(x, screenY);
+        } else {
+            waveCtx.lineTo(x, screenY);
+        }
+    }
+    
+    waveCtx.stroke();
+}
+
+// 更新波形显示
+function updateWaveDisplay(waveType, fundamentalAmp) {
+    const waveTypeEl = document.getElementById('wave-type');
+    
+    // 检查是否需要重置为未知波形
+    if (fundamentalAmp === 0) {
+        isWaveActive = false;
+        currentWaveType = 0;
+        waveTypeEl.textContent = "未知波形";
+        waveTypeEl.className = "wave-type wave-unknown";
+        drawUnknownWave();
+        return;
+    }
+    
+    // 基波幅度不为0，激活波形显示
+    isWaveActive = true;
+    
+    // 如果有键盘覆盖，使用键盘选择的波形
+    if (keyboardOverrideWaveType > 0) {
+        currentWaveType = keyboardOverrideWaveType;
+        
+        switch(keyboardOverrideWaveType) {
+            case 1:
+                waveTypeEl.textContent = "正弦波";
+                waveTypeEl.className = "wave-type wave-sine";
+                break;
+            case 2:
+                waveTypeEl.textContent = "矩形波";
+                waveTypeEl.className = "wave-type wave-square";
+                break;
+            case 3:
+                waveTypeEl.textContent = "锯齿波";
+                waveTypeEl.className = "wave-type wave-sawtooth";
+                break;
+        }
+    } else {
+        // 否则使用检测到的波形
+        currentWaveType = waveType;
+        
+        switch(waveType) {
+            case 1:
+                waveTypeEl.textContent = "正弦波";
+                waveTypeEl.className = "wave-type wave-sine";
+                break;
+            case 2:
+                waveTypeEl.textContent = "矩形波";
+                waveTypeEl.className = "wave-type wave-square";
+                break;
+            case 3:
+                waveTypeEl.textContent = "锯齿波";
+                waveTypeEl.className = "wave-type wave-sawtooth";
+                break;
+            default:
+                waveTypeEl.textContent = "未知波形";
+                waveTypeEl.className = "wave-type wave-unknown";
+                isWaveActive = false;
+        }
+    }
+}
+
+// 重置所有状态为0
+function resetAllStates() {
+    // 重置主状态
+    document.getElementById('voice-status').textContent = "0";
+    document.getElementById('music-status').textContent = "0";
+    document.getElementById('busy-status').textContent = "0";
+    document.getElementById('peak-index').textContent = "--";
+    
+    // 重置谐波信息
+    document.getElementById('fundamental-amp').textContent = "0";
+    document.getElementById('second-harmonic').textContent = "0";
+    document.getElementById('third-harmonic').textContent = "0";
+    
+    // 重置波形显示
+    document.getElementById('wave-type').textContent = "未知波形";
+    document.getElementById('wave-type').className = "wave-type wave-unknown";
+    
+    // 重置检测结果
+    document.getElementById('detection-result').textContent = "等待信号输入...";
+    document.getElementById('detection-result').className = "detection-result no-signal";
+    
+    // 重置处理状态
+    document.getElementById('processing-status').textContent = "";
+    document.getElementById('processing-status').classList.remove('pulse');
+    
+    // 重置波形动画
+    isWaveActive = false;
+    currentWaveType = 0;
+    currentFundamentalAmp = 0;
+    drawUnknownWave();
+    
+    // 重置记录状态
+    lastVoice = 0;
+    lastMusic = 0;
+    lastBusy = 0;
+}
+
+// 处理键盘按下
+function handleKeyDown(event) {
+    const key = event.key.toLowerCase();
+    
+    // 只处理A、S、D键
+    if (['a', 's', 'd'].includes(key)) {
+        // 防止默认行为
+        event.preventDefault();
+        
+        if (!keysPressed.has(key)) {
+            keysPressed.add(key);
+            
+            // 设置键盘覆盖波形
+            switch(key) {
+                case 'a':
+                    keyboardOverrideWaveType = 1; // 正弦波
+                    break;
+                case 's':
+                    keyboardOverrideWaveType = 2; // 矩形波
+                    break;
+                case 'd':
+                    keyboardOverrideWaveType = 3; // 锯齿波
+                    break;
+            }
+            
+            isKeyPressed = true;
+            
+            // 更新波形显示
+            updateWaveDisplay(currentWaveType, 100); // 给一个非0值激活波形显示
+        }
+    }
+}
+
+// 处理键盘释放
+function handleKeyUp(event) {
+    const key = event.key.toLowerCase();
+    
+    if (keysPressed.has(key)) {
+        keysPressed.delete(key);
+        
+        // 检查是否还有其他控制键被按下
+        const controlKeys = new Set(['a', 's', 'd']);
+        const pressedControlKeys = [...keysPressed].filter(k => controlKeys.has(k));
+        
+        if (pressedControlKeys.length === 0) {
+            // 没有控制键被按下，清除覆盖
+            keyboardOverrideWaveType = 0;
+            isKeyPressed = false;
+            
+            // 如果当前max=0，重置为未知波形
+            if (isMaxZero) {
+                updateWaveDisplay(0, 0);
+            } else {
+                // 否则恢复原来的波形显示
+                updateWaveDisplay(currentWaveType, currentFundamentalAmp);
+            }
+        } else {
+            // 还有其他控制键被按下，切换到优先级最高的键（最后一个按下的）
+            const lastKey = pressedControlKeys[pressedControlKeys.length - 1];
+            switch(lastKey) {
+                case 'a':
+                    keyboardOverrideWaveType = 1;
+                    break;
+                case 's':
+                    keyboardOverrideWaveType = 2;
+                    break;
+                case 'd':
+                    keyboardOverrideWaveType = 3;
+                    break;
+            }
+            
+            // 更新波形显示
+            updateWaveDisplay(currentWaveType, 100);
+        }
+    }
+}
+
+// 处理失去焦点时重置按键状态
+function handleBlur() {
+    // 清除所有按键状态
+    keysPressed.clear();
+    keyboardOverrideWaveType = 0;
+    isKeyPressed = false;
+    
+    // 恢复原来的波形显示
+    if (isMaxZero) {
+        updateWaveDisplay(0, 0);
+    } else {
+        updateWaveDisplay(currentWaveType, currentFundamentalAmp);
+    }
+}
+
+// === 串口输入行解析 ===
+function parseSerialLine(line) {
+    line = line.trim();
+    if (!line) return;
+
+    // ✅ 优先解析 JSON 格式
+    if (line.startsWith("{") && line.endsWith("}")) {
+        try {
+            const data = JSON.parse(line);
+            processJSONData(data);
+            return;
+        } catch (e) {
+            console.warn("JSON解析失败:", e, line);
+        }
+    }
+    
+    // ✅ 兼容旧文本格式
+    processTextData(line);
+}
+
+// 处理JSON数据
+function processJSONData(data) {
+    const voice   = data.voice ?? 0;
+    const music   = data.music ?? 0;
+    const busy    = data.busy  ?? 0;
+    const maxFlag = (data.max ?? 1);
+    const index   = data.index !== undefined ? Number(data.index) : null;
+    const fundamental = data.fundamental !== undefined ? Number(data.fundamental) : 0;
+    const secondHarmonic = data.second_harmonic !== undefined ? Number(data.second_harmonic) : 0;
+    const thirdHarmonic = data.third_harmonic !== undefined ? Number(data.third_harmonic) : 0;
+    const waveType = data.wave_type !== undefined ? Number(data.wave_type) : 0;
+    
+    // 检查max状态
+    if (maxFlag === 0) {
+        isMaxZero = true;
+        resetAllStates();  // max=0，重置所有状态为0
+        return;
+    }
+    
+    isMaxZero = false;
+    updateDisplay(voice, music, busy, index, maxFlag);
+    updateHarmonicDisplay(fundamental, secondHarmonic, thirdHarmonic);
+    updateWaveDisplay(waveType, fundamental);
+}
+
+// 处理文本数据
+function processTextData(line) {
+    // 文本格式默认认为数据有效
+    isMaxZero = false;
+    
+    let voice = 0, music = 0, busy = 0;
+    
+    if (line.includes("检测到语音信号")) voice = 1;
+    if (line.includes("检测到音乐信号")) music = 1;
+    if (line.includes("FFTing") || /Busy:\s*1/.test(line)) busy = 1;
+    
+    updateDisplay(voice, music, busy, null, 1);
+    
+    // 文本格式没有谐波信息，重置为未知波形
+    updateHarmonicDisplay(0, 0, 0);
+    updateWaveDisplay(0, 0);
+}
+
+// 更新谐波显示
+function updateHarmonicDisplay(fundamental, secondHarmonic, thirdHarmonic) {
+    document.getElementById('fundamental-amp').textContent = fundamental;
+    document.getElementById('second-harmonic').textContent = secondHarmonic;
+    document.getElementById('third-harmonic').textContent = thirdHarmonic;
+}
+
+// === 更新UI显示 ===
+function updateDisplay(voiceState, musicState, busyState, peakIndex, maxFlag) {
+    // 更新数值区
+    document.getElementById('voice-status').textContent = voiceState;
+    document.getElementById('music-status').textContent = musicState;
+    document.getElementById('busy-status').textContent  = busyState;
+
+    const detectionResult  = document.getElementById('detection-result');
+    const processingStatus = document.getElementById('processing-status');
+    const peakIndexEl      = document.getElementById('peak-index');
+
+    // Busy状态动画
+    if (busyState) {
+        processingStatus.textContent = "正在检测中...";
+        processingStatus.classList.add('pulse');
+    } else {
+        processingStatus.textContent = "";
+        processingStatus.classList.remove('pulse');
+    }
+
+    // === 峰值频点显示：max=0 时 index 无效，用 "--" ===
+    if (maxFlag === 0) {
+        peakIndexEl.textContent = "--";
+    } else if (Number.isFinite(peakIndex)) {
+        peakIndexEl.textContent = peakIndex;
+    }
+
+    // === 大字主显示：先按原逻辑更新（仅在语音/音乐变化时）===
+    if (voiceState !== lastVoice || musicState !== lastMusic) {
+        if (voiceState) {
+            detectionResult.textContent = "检测到语音信号";
+            detectionResult.className   = "detection-result voice-detected pulse";
+            addHistoryEvent("语音信号");
+        } else if (musicState) {
+            detectionResult.textContent = "检测到音乐信号";
+            detectionResult.className   = "detection-result music-detected pulse";
+            addHistoryEvent("音乐信号");
+        } else if (busyState) {
+            detectionResult.textContent = "未检测到信号";
+            detectionResult.className   = "detection-result no-signal";
+        }
+    }
+
+    // === max 门控：max=0 时强制覆盖为"未检测到声音" ===
+    if (maxFlag === 0) {
+        detectionResult.textContent = "未检测到声音";
+        detectionResult.className   = "detection-result no-signal";
+    }
+
+    lastVoice = voiceState;
+    lastMusic = musicState;
+    lastBusy  = busyState;
+}
+
+// === 历史记录 ===
+function addHistoryEvent(eventType) {
+    const historyList = document.getElementById('history-list');
+    const now = new Date();
+    const timeString = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+    const listItem = document.createElement('li');
+    listItem.className = 'history-item';
+    let eventClass = eventType === '语音信号' ? 'voice-event' : (eventType === '音乐信号' ? 'music-event' : 'busy-event');
+    listItem.innerHTML = `<span class="history-time">${timeString}</span><span class="history-event ${eventClass}">${eventType}</span>`;
+    historyList.insertBefore(listItem, historyList.firstChild);
+    if (historyList.children.length > 10) historyList.removeChild(historyList.lastChild);
+}
+
+// === 串口连接 ===
+const connectBtn = document.getElementById('connect-btn');
+const connectionInfo = document.getElementById('connection-info');
+
+connectBtn.addEventListener('click', async () => {
+    try {
+        if (!("serial" in navigator)) {
+            alert("❌ 当前浏览器不支持 Web Serial API，请使用 Chrome 89+ 或 Edge。");
+            return;
+        }
+        
+        if (port && port.readable) {
+            // 断开连接
+            await reader.cancel();
+            await port.close();
+            port = null;
+            connectBtn.textContent = "🔌 连接串口";
+            connectBtn.className = "connect-btn";
+            connectionInfo.textContent = "串口已断开";
+            return;
+        }
+        
+        // 连接串口
+        port = await navigator.serial.requestPort();
+        await port.open({ baudRate: 115200 });
+        connectBtn.textContent = "🔌 断开连接";
+        connectBtn.className = "connect-btn connected";
+        connectionInfo.textContent = "已连接串口，波特率: 115200";
+        
+        listenToPort();
+    } catch (err) {
+        if (err.name === 'NotFoundError') {
+            connectionInfo.textContent = "未选择串口";
+        } else {
+            alert("串口连接失败：" + err);
+            connectionInfo.textContent = "连接失败: " + err.message;
+        }
+    }
+});
+
+async function listenToPort() {
+    const decoder = new TextDecoderStream();
+    port.readable.pipeTo(decoder.writable);
+    reader = decoder.readable.getReader();
+
+    let buffer = "";
+    try {
+        while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+            if (value) {
+                buffer += value;
+                const lines = buffer.split(/\r?\n/);
+                buffer = lines.pop();
+                for (const line of lines) {
+                    parseSerialLine(line);
+                }
+            }
+        }
+    } catch (err) {
+        console.error("读取串口错误:", err);
+        connectionInfo.textContent = "读取错误: " + err.message;
+    }
+}
+
+// 窗口大小变化时重新调整画布
+window.addEventListener('resize', () => {
+    if (waveCanvas) {
+        initWaveCanvas();
+        // 根据当前状态重绘
+        if (!isWaveActive) {
+            drawUnknownWave();
+        } else {
+            const frequency = document.getElementById('peak-index').textContent;
+            const freqNum = parseInt(frequency) || 1;
+            drawWave(currentWaveType, Math.max(1, freqNum / 100));
+        }
+    }
+});
+
+// 页面加载完成
+document.addEventListener('DOMContentLoaded', () => {
+    initWaveCanvas();
+    drawUnknownWave();  // 初始化为未知波形
+    
+    // 注册键盘事件监听器
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
+    window.addEventListener('blur', handleBlur);
+    
+    // 启动动画循环
+    function animate() {
+        if (isWaveActive && currentWaveType > 0) {
+            const frequency = document.getElementById('peak-index').textContent;
+            const freqNum = parseInt(frequency) || 1;
+            drawWave(currentWaveType, Math.max(1, freqNum / 100));
+        } else {
+            drawUnknownWave();
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
+});
+
+// 页面卸载时清理事件监听器
+window.addEventListener('beforeunload', () => {
+    document.removeEventListener('keydown', handleKeyDown);
+    document.removeEventListener('keyup', handleKeyUp);
+    window.removeEventListener('blur', handleBlur);
+});
+</script>
+</body>
+</html>
