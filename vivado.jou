@@ -1,0 +1,39 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Jan  5 09:04:53 2026
+# Process ID: 17068
+# Current directory: F:/FPGA/work_space/AD_DA_tran
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent760 F:\FPGA\work_space\AD_DA_tran\AD_DA_tran.xpr
+# Log file: F:/FPGA/work_space/AD_DA_tran/vivado.log
+# Journal file: F:/FPGA/work_space/AD_DA_tran\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.xpr
+update_compile_order -fileset sources_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.bit} [get_hw_devices xc7z020_1]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.ltx} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]]
+launch_sdk -workspace F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.sdk -hwspec F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.sdk/FFT_OUT.hdf
+open_bd_design {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/bd/zynq_a9/zynq_a9.bd}
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]]
+set_property TRIGGER_COMPARE_VALUE {eq1'b1 eq1'b1} [get_hw_probes u_FIFO_to_FFT/max -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]]
+save_wave_config {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
+close_hw

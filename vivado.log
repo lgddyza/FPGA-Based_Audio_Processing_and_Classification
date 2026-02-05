@@ -1,0 +1,71 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Jan  5 09:04:53 2026
+# Process ID: 17068
+# Current directory: F:/FPGA/work_space/AD_DA_tran
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent760 F:\FPGA\work_space\AD_DA_tran\AD_DA_tran.xpr
+# Log file: F:/FPGA/work_space/AD_DA_tran/vivado.log
+# Journal file: F:/FPGA/work_space/AD_DA_tran\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/FPGA/Vivado18.3/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 904.707 ; gain = 227.500
+update_compile_order -fileset sources_1
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210357A7D00EA
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.bit} [get_hw_devices xc7z020_1]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.ltx} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtools 27-3413] Dropping logic core with cellname:'u_FIFO_to_FFT/u_ila_2' at location 'uuid_E641CE39D9B0561480D0E73C76B2F5CA' from probes file, since it cannot be found on the programmed device.
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_2/FFT_OUT.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-2302] Device xc7z020 (JTAG device index = 1) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]]
+INFO: [Vivado 12-4158] Exported Hardware file is out of date. Exported hardware information may be inconsistent with respect to the current state of the design. It is recommended that you re-export the design and launch SDK otherwise SDK is launched with out of date hardware system file.
+launch_sdk -workspace F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.sdk -hwspec F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.sdk/FFT_OUT.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.sdk -hwspec F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.sdk/FFT_OUT.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+open_bd_design {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/bd/zynq_a9/zynq_a9.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Successfully read diagram <zynq_a9> from BD file <F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/bd/zynq_a9/zynq_a9.bd>
+WARNING: [IP_Flow 19-474] Invalid Parameter 'Component_Name'
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-Jan-05 09:19:40
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2026-Jan-05 09:19:40
+INFO: [Labtools 27-3304] ILA Waveform data saved to file F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property TRIGGER_COMPARE_VALUE {eq1'b1 eq1'b1} [get_hw_probes u_FIFO_to_FFT/max -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-Jan-05 09:20:13
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_FIFO_to_FFT/u_ila_2"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2026-Jan-05 09:20:23
+INFO: [Labtools 27-3304] ILA Waveform data saved to file F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+save_wave_config {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
+close_hw
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Jan  5 09:30:26 2026...

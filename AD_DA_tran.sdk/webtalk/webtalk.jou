@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# 
+# Start of session at: Thu Nov  6 14:57:04 2025
+# Process ID: 27776
+# Current directory: F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.sdk/webtalk/webtalk.log
+# Journal file: F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

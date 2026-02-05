@@ -1,0 +1,191 @@
+{
+    "ltx_root": {
+        "version": 4,
+        "minor": 0,
+        "ltx_data": [
+            {
+                "name": "EDA_PROBESET",
+                "active": true,
+                "debug_cores": [
+                    {
+                        "type": "XSDB_V3",
+                        "name": "dbg_hub",
+                        "spec": "labtools_xsdbm_v3",
+                        "clk_input_freq_hz": "50000000"
+                    },
+                    {
+                        "type": "ILA_V3",
+                        "name": "u_FIFO_to_FFT/u_ila_2",
+                        "spec": "labtools_ila_v6",
+                        "ipName": "ila",
+                        "core_location": {
+                            "user_chain": 1,
+                            "slave_index": 0,
+                            "bscan_switch_index": 0
+                        },
+                        "uuid": "E641CE39D9B0561480D0E73C76B2F5CA",
+                        "pins": [
+                            {
+                                "name": "probe0",
+                                "id": 0,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "u_FIFO_to_FFT/max",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 1,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 7,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "u_FIFO_to_FFT/peak_power",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "u_FIFO_to_FFT/peak_power[7]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/peak_power[6]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/peak_power[5]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/peak_power[4]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/peak_power[3]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/peak_power[2]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/peak_power[1]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/peak_power[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe2",
+                                "id": 2,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 10,
+                                "portIndex": 2,
+                                "nets": [
+                                    {
+                                        "name": "u_FIFO_to_FFT/index",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[10]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[9]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[8]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[7]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[6]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[5]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[4]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[3]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[2]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[1]"
+                                            },
+                                            {
+                                                "name": "u_FIFO_to_FFT/index[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe3",
+                                "id": 3,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 3,
+                                "nets": [
+                                    {
+                                        "name": "u_FIFO_to_FFT/voice",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe4",
+                                "id": 4,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 4,
+                                "nets": [
+                                    {
+                                        "name": "u_FIFO_to_FFT/music",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe5",
+                                "id": 5,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 5,
+                                "nets": [
+                                    {
+                                        "name": "u_FIFO_to_FFT/busy",
+                                        "isBus": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

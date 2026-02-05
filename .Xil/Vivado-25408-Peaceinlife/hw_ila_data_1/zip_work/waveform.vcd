@@ -1,0 +1,37 @@
+$date
+        2026-Jan-01 22:49:19
+$end
+$version
+        Vivado v2018.3 (64-bit)
+$end
+$timescale
+        1ps
+$end
+$scope module dut $end
+$var reg 1 " u_FIFO_to_FFT/max $end
+$var reg 8 # u_FIFO_to_FFT/peak_power [7:0] $end
+$var reg 11 + u_FIFO_to_FFT/index [10:0] $end
+$var reg 1 6 u_FIFO_to_FFT/voice $end
+$var reg 1 7 u_FIFO_to_FFT/music $end
+$var reg 1 8 u_FIFO_to_FFT/busy $end
+$var reg 1 9 _TRIGGER $end
+$var reg 1 : _WINDOW $end
+$var reg 1 ; _GAP $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0"
+b11001 #
+b11000 +
+16
+07
+18
+09
+1:
+0;
+$end
+#65536
+1"
+b101101 +
+19

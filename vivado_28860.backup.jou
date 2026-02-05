@@ -1,0 +1,193 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun Oct 26 00:13:33 2025
+# Process ID: 28860
+# Current directory: F:/FPGA/work_space/AD_DA_tran
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent27044 F:\FPGA\work_space\AD_DA_tran\AD_DA_tran.xpr
+# Log file: F:/FPGA/work_space/AD_DA_tran/vivado.log
+# Journal file: F:/FPGA/work_space/AD_DA_tran\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.xpr
+update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/fft_fifo.v]
+set_property is_enabled true [get_files  F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/new/fft_fifo.v]
+update_compile_order -fileset sources_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.bit} [get_hw_devices xc7z020_1]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_2"}]]
+save_wave_config {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
+close_hw
+set_property is_enabled true [get_files  F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/ip/ila_1/ila_1.xci]
+set_property is_enabled true [get_files  F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/ip/ila_0/ila_0.xci]
+set_property is_enabled false [get_files  F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/ip/ila_0/ila_0.xci]
+set_property is_enabled false [get_files  F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/ip/ila_2/ila_2.xci]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.bit} [get_hw_devices xc7z020_1]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {u_ad_fifo/da_clk} }
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {u_ad_fifo/data_tlast} }
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {u_ad_fifo/fifo_data} }
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {u_ad_fifo/rd_data_count} }
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+save_wave_config {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
+close_hw
+set_property -dict [list CONFIG.C_PROBE4_WIDTH {8} CONFIG.C_NUM_OF_PROBES {5}] [get_ips ila_1]
+generate_target all [get_files  F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/ip/ila_1/ila_1.xci]
+catch { config_ip_cache -export [get_ips -all ila_1] }
+export_ip_user_files -of_objects [get_files F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/ip/ila_1/ila_1.xci] -no_script -sync -force -quiet
+reset_run ila_1_synth_1
+launch_runs -jobs 12 ila_1_synth_1
+wait_on_run ila_1_synth_1
+export_simulation -of_objects [get_files F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.srcs/sources_1/ip/ila_1/ila_1.xci] -directory F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.ip_user_files/sim_scripts -ip_user_files_dir F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.ip_user_files -ipstatic_source_dir F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.ip_user_files/ipstatic -lib_map_path [list {modelsim=F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.cache/compile_simlib/modelsim} {questa=F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.cache/compile_simlib/questa} {riviera=F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.cache/compile_simlib/riviera} {activehdl=F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.bit} [get_hw_devices xc7z020_1]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {u_ad_fifo/dac_data} }
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+save_wave_config {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.bit} [get_hw_devices xc7z020_1]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.runs/impl_1/FIFO_to_FFT.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ad_fifo/u_ila_1"}]]
+save_wave_config {F:/FPGA/work_space/AD_DA_tran/AD_DA_tran.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
